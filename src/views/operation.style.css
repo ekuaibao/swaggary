@@ -1,5 +1,11 @@
 .operation {
   font-size: 16px;
+  ul {
+    padding: 0;
+  }
+  li {
+    list-style: none;
+  }
 }
 
 .title {
@@ -82,4 +88,21 @@
 
 .item {
   margin: 8px 0;
+}
+
+.status {
+  display: flex;
+  margin: 8px 0;
+  padding: 4px 0;
+  flex-direction: row;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 14px;
+}
+
+.status-code {
+  width: 100px;
+}
+
+.status-message {
+  flex: 1;
 }

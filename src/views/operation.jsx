@@ -36,6 +36,14 @@ class Operation extends React.Component {
             )}
           </div>
         )}
+        {this.renderSection('Status Codes',
+          o.statusCode.map((s, i) =>
+            <div className={styles.status} key={i}>
+              <div className={styles.statusCode}>{s.code}</div>
+              <div className={styles.statusMessage}>{s.message}</div>
+            </div>
+          )
+        )}
         {o.response && this.renderSection('Response',
           <div className={styles.item}>
             <ModelType type={o.response}/>

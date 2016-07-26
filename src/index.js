@@ -61,7 +61,8 @@ import 'whatwg-fetch'
                   queryParams: filterParams(o, 'query', models),
                   body: filterParams(o, 'body', models)[0],
                   consumes: o.consumes,
-                  produces: o.produces
+                  produces: o.produces,
+                  statusCode: o.responseMessages || []
                 })
               })
             })
