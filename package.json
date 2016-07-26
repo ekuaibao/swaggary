@@ -1,9 +1,10 @@
 {
-  "name": "whispered",
+  "name": "swaggray",
   "version": "0.1.0",
-  "description": "Ekuaibao client",
+  "description": "An alternative ui for swagger json format",
   "scripts": {
-    "start": "NODE_ENV=development node ./buildscript/serve.js http $@",
+    "start": "NODE_ENV=development node ./buildscript/serve.js http --pattern=\"^/(api|doc)/\"",
+    "build": "NODE_ENV=production node ./buildscript/serve.js build",
     "test": "NODE_ENV=production jest",
     "help": "node ./buildscript/serve.js -h"
   },

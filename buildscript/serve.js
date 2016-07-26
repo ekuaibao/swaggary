@@ -9,15 +9,23 @@ const date = require('./date.js')
 const argv = require('yargs')
   .usage('Usage: $0 <command> [options]')
   .command('quick', 'start dev server via select a subproject')
-  .demand(1)
-  .command('http', 'start dev server')
-  .demand(1)
-  .example('$0 http --api=http://beta.qhost.net:5501 --hostHeader=www.ekuaibao.com', 'start dev server which proxy api to http://beta.qhost.net:5501 with a fake HOST header www.ekuaibao.com')
-  .default('api', 'http://localhost:1338')
-  .nargs('api', 1)
-  .describe('api', 'specify backend server url')
-  .nargs('hostHeader', 1)
-  .describe('hostHeader', 'specify HOST header which will send to backend server')
+  .command('http', 'start dev server', {
+    api: {
+      alias: 'a',
+      default: 'http://localhost:1338',
+      describe: 'specify backend server url'
+    },
+    pattern: {
+      alias: 'p',
+      default: '^/api/',
+      describe: 'specify which url should be redirect to backend server'
+    },
+    host: {
+      describe: 'specify HOST header which will send to backend server'
+    },
+  })
+  .command('build', 'build project with webpack')
+  .example('$0 http --api=http://www.ekuaibao.com --pattern=^/api/ --host=www.ekuaibao.com', 'start dev server which proxy /api/* to http://www.ekuaibao.com with a fake HOST header www.ekuaibao.com')
   .help('h')
   .alias('h', 'help')
   .argv
@@ -67,16 +75,8 @@ function log() {
 
 function runSeq() {
   return Array.prototype.slice.call(arguments, 0)
-    .reduce((p, name) => p.then(() => runCommand(name)), Promise.resolve())
-    .catch(err => {
-      if (err) {
-        log(err.message)
-        err = err.cause || err
-        log(err.stack || err.message)
-      } else {
-        log('unknown error')
-      }
-    })
+              .reduce((p, name) => p.then(() => runCommand(name)), Promise.resolve())
+              .catch(errorHandler)
 }
 
 function runCommand(name) {
@@ -96,10 +96,22 @@ function runCommand(name) {
   }
 }
 
+function errorHandler(err) {
+  if (err) {
+    log(err.message)
+    err = err.cause || err
+    log(err.stack || err.message)
+  } else {
+    log('unknown error')
+  }
+}
+
 (() => {
   const command = argv._[0]
   if (command) {
-    process.nextTick(() => runCommand(command))
+    process.nextTick(() =>
+      runCommand(command).catch(errorHandler)
+    )
   } else {
     console.log('command required')
   }
@@ -125,7 +137,7 @@ addCommand('http', () => {
 
 function doWebpack(config) {
   return new Promise((resolve, reject) => {
-    webpack(config, (err, stats) => {
+    webpack(config, (err) => {
       if (err) {
         reject(err)
       } else {
@@ -142,7 +154,7 @@ function http(dir) {
     context: argv.context,
     proxy: {
       hostHeader: argv.hostHeader,
-      pattern: /^\/(api|doc)\//,
+      pattern: new RegExp(argv.pattern),
       target: argv.api
     },
     root: dir

@@ -35,7 +35,7 @@ import 'whatwg-fetch'
   const primitiveTypes = {
     'string': 1, 'integer': 1, 'boolean': 1, 'Map': 1
   }
-  const url = '/doc/apidocs/generated/service.json'
+  const url = $swagger_document_url
   fetch(url)
     .then(resp => resp.json())
     .then(doc => {
