@@ -1,0 +1,38 @@
+# mac
+.DS_Store
+
+# IDEA
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# build
+target/
+build/
+*.class
+*/.gitignore
+
+# nodejs
+node_modules
+npm-debug.log
+
+# bower
+bower_components
+
+# brackets
+.brackets.json
+
+# visual studio code
+.vscode
+
+# atom-sync
+.sync-config.cson
+
+# Logs
+logs
+*.log
+
+# Runtime data
+*.pid
+*.seed
