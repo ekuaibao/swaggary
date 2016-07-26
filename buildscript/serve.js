@@ -23,6 +23,11 @@ const argv = require('yargs')
     host: {
       describe: 'specify HOST header which will send to backend server'
     },
+    context: {
+      alias: 'c',
+      default: '',
+      describe: 'specify an additional url context path'
+    }
   })
   .command('build', 'build project with webpack')
   .example('$0 http --api=http://www.ekuaibao.com --pattern=^/api/ --host=www.ekuaibao.com', 'start dev server which proxy /api/* to http://www.ekuaibao.com with a fake HOST header www.ekuaibao.com')
