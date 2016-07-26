@@ -1,0 +1,85 @@
+.operation {
+  font-size: 16px;
+}
+
+.title {
+  margin: 16px 0;
+  background-color: rgb(243, 244, 246);
+  font-size: 20px;
+  &:before {
+    content: '';
+    display: inline-block;
+    margin-right: 16px;
+    height: 55px;
+    width: 8px;
+    vertical-align: middle;
+  }
+}
+
+.url {
+  display: flex;
+  margin-top: 8px;
+}
+
+.method {
+  padding: 2px 4px;
+  border: 3px solid currentColor;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.path {
+  margin-left: 24px;
+  font-size: 16px;
+}
+
+.description {
+  margin: 16px 0;
+  font-size: 18px;
+}
+
+.GET {
+  --color: rgb(148, 215, 190);
+  .title:before {
+    background-color: var(--color);
+  }
+  .method {
+    color: var(--color);
+  }
+}
+
+.POST, .PUT {
+  --color: rgb(89, 171, 253);
+  .title:before {
+    background-color: var(--color);
+  }
+  .method {
+    color: var(--color);
+  }
+}
+
+.DELETE {
+  --color: rgb(253, 136, 131);
+  .title:before {
+    background-color: var(--color);
+  }
+  .method {
+    color: var(--color);
+  }
+}
+
+.section {
+  margin: 8px 0;
+}
+
+.sub-title {
+  font-size: 18px;
+  line-height: 2em;
+  border-bottom: 1px solid rgb(193, 198, 209);
+}
+
+.item {
+  margin: 8px 0;
+}

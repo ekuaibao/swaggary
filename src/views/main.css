@@ -1,0 +1,12 @@
+body {
+  margin: 0 0 80vh 0;
+  color: #3b4151;
+  font-family: SF UI Display, PingFang SC, Neue Haas Grotesk Text Pro, Arial Nova, Segoe UI, Microsoft YaHei, Microsoft JhengHei, Helvetica, Hiragino Sans GB, Helvetica Neue, Source Han Sans SC, Noto Sans CJK SC, Source Han Sans CN, Noto Sans SC, Source Han Sans TC, Noto Sans CJK TC, sans-serif;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}

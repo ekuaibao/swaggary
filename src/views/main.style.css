@@ -1,0 +1,17 @@
+.main {
+  margin: 0 10%;
+}
+
+.nav-col {
+  margin-right: 48px;
+}
+
+.nav {
+  position: fixed;
+  top: 24px;
+  width: 240px;
+}
+
+.doc-col {
+  margin-left: 288px;
+}

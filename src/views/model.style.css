@@ -1,0 +1,38 @@
+.model {
+  font-family: monospace;
+
+  div {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+}
+
+.name {
+  color: #52AD59;
+}
+
+.symbol {
+  color: #5C599A;
+}
+
+.type {
+  margin-left: 0.5em;
+  font-weight: bold;
+  color: #4C77FA;
+}
+
+.description {
+  margin-left: 2em;
+  color: #F28723;
+  &:before {
+    content: '// ';
+  }
+}
+
+.inner {
+  margin-left: 1.5em;
+
+  > .type {
+    margin-left: 0;
+  }
+}

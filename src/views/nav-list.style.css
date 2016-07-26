@@ -1,0 +1,29 @@
+.nav-list {
+  a {
+    border-right: 3px solid transparent;
+    display: block;
+    color: #759EB5;
+    &:hover {
+      color: #6AA6F9;
+    }
+    &.selected {
+      border-color: #759EB5;
+    }
+  }
+  .subs {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+}
+
+.title {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.subTitle {
+  margin: 4px 0 4px 1em;
+  font-size: 13px;
+}
