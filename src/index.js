@@ -112,13 +112,16 @@ import 'whatwg-fetch'
             return
           processed[name] = 1
           more = true
-          const arr = models[name].subTypes
-          if (arr) {
-            arr.forEach(id => {
-              const type = makeNonArrayModel(id, models, refs)
-              type.parent = name
-              subTypes.push(type)
-            })
+          const model = models[name]
+          if (model) {
+            const arr = model.subTypes
+            if (arr) {
+              arr.forEach(id => {
+                const type = makeNonArrayModel(id, models, refs)
+                type.parent = name
+                subTypes.push(type)
+              })
+            }
           }
         })
       } while (more)
@@ -147,8 +150,8 @@ import 'whatwg-fetch'
     refs[type] = 1
     const m = models[type]
     if (!m) {
-      console.error('unsupported type:', type)
-      return null
+      console.warn('unsupported type:', type)
+      return { type: 'object', id: type, props: [] }
     }
     const props = Object.keys(m.properties).map(name => {
       const p = m.properties[name]
