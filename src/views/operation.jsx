@@ -14,7 +14,7 @@ class Operation extends React.Component {
           <div className={styles.method}>{o.method}</div>
           <div className={styles.path}>{o.path}</div>
         </div>
-        <div className={styles.description}>{o.description}</div>
+        <div className={styles.description} dangerouslySetInnerHTML={{ __html: o.description }}/>
         {o.consumes && this.renderSection('ContentType',
           <ul>
             {o.consumes.map(m => this.renderMediaType(m))}

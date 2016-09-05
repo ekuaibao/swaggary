@@ -12,7 +12,9 @@ class NavList extends React.Component {
     });
     return (
       <div className={styles.navList}>
-        <ScrollSpy selectedClassName={styles.selected} activeClassName={styles.active}>
+        <ScrollSpy selectedClassName={styles.selected}
+                   activeClassName={styles.active}
+                   selected={'#' + this.props.selected}>
           {arr.map((r, i) =>
             <div key={i}>
               <a className={styles.title} href={'#' + r.id}>{r.description}</a>

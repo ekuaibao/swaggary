@@ -13,6 +13,7 @@ const store = createStore(reducer, window.devToolsExtension ? window.devToolsExt
 
 window.addEventListener('DOMContentLoaded', () => {
   const rootEl = document.createElement('div')
+  rootEl.className = 'root'
   document.body.appendChild(rootEl)
 
   function render() {
@@ -50,7 +51,7 @@ import 'whatwg-fetch'
               const apiPath = apiDoc.basePath + a.path
               a.operations.forEach(o => {
                 operations.push({
-                  id: encodeURIComponent(o.summary),
+                  id: o.method + ':' + apiPath,
                   path: apiPath,
                   title: o.summary,
                   description: o.notes,

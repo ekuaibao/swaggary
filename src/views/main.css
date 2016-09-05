@@ -1,12 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 body {
-  margin: 0 0 80vh 0;
   color: #3b4151;
   font-family: SF UI Display, PingFang SC, Neue Haas Grotesk Text Pro, Arial Nova, Segoe UI, Microsoft YaHei, Microsoft JhengHei, Helvetica, Hiragino Sans GB, Helvetica Neue, Source Han Sans SC, Noto Sans CJK SC, Source Han Sans CN, Noto Sans SC, Source Han Sans TC, Noto Sans CJK TC, sans-serif;
-  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
 a {
-  color: currentColor;
+  color: #4c77fa;
   text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table td,
+table th {
+  padding: 0.2em 0.5em;
+  border: 1px solid #759eb5;
+}
+
+.root {
+  height: 100%;
 }

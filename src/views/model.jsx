@@ -20,7 +20,8 @@ export class ModelProp extends React.Component {
           <span className={styles.name}>{p.name}</span>
           <span className={styles.symbol}>:</span>
           <span className={styles.type}>{typeName}</span>
-          <span className={styles.description}>{(p.optional ? '可选;' : '必填;') + p.description}</span>
+          <span className={styles.description}
+                dangerouslySetInnerHTML={{ __html: (p.optional ? '可选;' : '必填;') + p.description }}/>
         </div>
         {complex ? <ModelClass type={p.type}/> : null}
       </div>

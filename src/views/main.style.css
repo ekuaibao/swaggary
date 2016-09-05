@@ -1,3 +1,9 @@
+.scrollable {
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 50%;
+}
+
 .main {
   margin: 0 10%;
 }
