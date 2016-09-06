@@ -1,19 +1,21 @@
 import React from 'react'
 
-function find(arr, value) {
+function find(arr, offset) {
   var l = 0, h = arr.length - 1, c
   while (l <= h) {
     c = (l + h) >> 1
-    var v = arr[c]
-    if (v < value) {
+    var t = arr[c].elem.offsetTop
+    if (t < offset) {
       l = c + 1
-    } else if (v > value) {
+    } else if (t > offset) {
       h = c - 1
     } else {
-      return c
+      h = c
+      break
     }
   }
-  return Math.min(Math.max(h, 0), arr.length - 1)
+  c = Math.min(Math.max(h, 0), arr.length - 1)
+  return arr[c].comp
 }
 
 export class Scrollable extends React.Component {
@@ -42,11 +44,8 @@ export class Scrollable extends React.Component {
   onScroll() {
     const root = this.refs.dom
     if (root && this.orders.length) {
-      const offsetTop = root.offsetTop
-      const arr = this.orders.map(o => o.elem.offsetTop - offsetTop)
-      const top = root.scrollTop
-      const i = find(arr, top)
-      const c = this.orders[i].comp
+      const top = root.scrollTop + root.offsetTop
+      const c = find(this.orders, top)
       const name = c.props.name
       if (this.scrollName != name) {
         this.scrollName = name
