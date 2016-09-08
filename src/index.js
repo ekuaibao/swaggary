@@ -68,7 +68,7 @@ import 'whatwg-fetch'
               })
             })
             return {
-              id: encodeURIComponent(api.description),
+              id: apiDoc.basePath + apiDoc.resourcePath,
               description: api.description,
               operations
             }
