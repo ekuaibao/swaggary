@@ -32,3 +32,10 @@ table th {
 .root {
   height: 100%;
 }
+
+.code-block {
+  display: block;
+  padding: 0.5em !important;
+  white-space: pre !important;
+  font-size: 16px;
+}
