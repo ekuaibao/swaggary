@@ -17,7 +17,7 @@ export function load() {
             .then(resp => resp.json())
             .then(apiDoc => {
               const operations = []
-              const models = apiDoc.models
+              const models = apiDoc.models || {}
               apiDoc.apis.forEach(a => {
                 const apiPath = apiDoc.basePath + a.path
                 a.operations.forEach(o => {
