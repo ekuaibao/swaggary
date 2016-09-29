@@ -26923,7 +26923,7 @@
 	          return resp.json();
 	        }).then(function (apiDoc) {
 	          var operations = [];
-	          var models = apiDoc.models;
+	          var models = apiDoc.models || {};
 	          apiDoc.apis.forEach(function (a) {
 	            var apiPath = apiDoc.basePath + a.path;
 	            a.operations.forEach(function (o) {
