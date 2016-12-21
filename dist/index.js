@@ -26869,7 +26869,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".scrollable-8yY2W{height:100%;overflow-y:auto;padding-bottom:50%}.main-3Q_Te{margin:0 10%}.nav-col-1sYJp{margin-right:48px}.nav-v_zse{position:fixed;top:24px;width:240px}.doc-col-17Fgx{margin-left:288px}", ""]);
+	exports.push([module.id, ".scrollable-8yY2W{height:100%;overflow-y:auto;padding-bottom:50%}.main-3Q_Te{margin:0 10%}.nav-col-1sYJp{margin-right:48px}.nav-v_zse{position:fixed;top:24px;bottom:0;width:240px;overflow-y:auto}.doc-col-17Fgx{margin-left:288px}", ""]);
 	
 	// exports
 	exports.locals = {

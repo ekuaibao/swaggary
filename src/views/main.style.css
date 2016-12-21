@@ -1,23 +1,25 @@
 .scrollable {
-  height: 100%;
-  overflow-y: auto;
-  padding-bottom: 50%;
+    height         : 100%;
+    overflow-y     : auto;
+    padding-bottom : 50%;
 }
 
 .main {
-  margin: 0 10%;
+    margin : 0 10%;
 }
 
 .nav-col {
-  margin-right: 48px;
+    margin-right : 48px;
 }
 
 .nav {
-  position: fixed;
-  top: 24px;
-  width: 240px;
+    position   : fixed;
+    top        : 24px;
+    bottom     : 0;
+    width      : 240px;
+    overflow-y : auto;
 }
 
 .doc-col {
-  margin-left: 288px;
+    margin-left : 288px;
 }
